@@ -275,7 +275,7 @@ app.get('/receipt/:id', (req, res) => {
 
             const mailOptions = {
 
-                from: 'YOUR_GMAIL@gmail.com',
+                from: process.env.EMAIL_USER,
 
                 to: payment.email,
 
