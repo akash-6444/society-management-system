@@ -113,6 +113,9 @@ app.get('/payment', (req, res) => {
 
 });
 
+app.get('/', (req, res) => {
+    res.render('login');
+});
 
 app.listen(3000, () => {
 
