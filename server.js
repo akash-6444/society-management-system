@@ -45,11 +45,7 @@ db.connect((err) => {
 // EMAIL TRANSPORTER
 const transporter = nodemailer.createTransport({
 
-    host: "smtp.gmail.com",
-
-    port: 587,
-
-    secure: false,
+    service: 'gmail',
 
     auth: {
 
@@ -59,15 +55,15 @@ const transporter = nodemailer.createTransport({
 
     },
 
-    tls: {
+    connectionTimeout: 10000,
 
-        rejectUnauthorized: false
+    greetingTimeout: 10000,
 
-    }
+    socketTimeout: 10000
 
 });
 
-transporter.verify((error, success) => {
+transporter.verify(function(error, success) {
 
     if (error) {
 
@@ -81,7 +77,6 @@ transporter.verify((error, success) => {
     }
 
 });
-
 
 // LOGIN PAGE
 app.get('/', (req, res) => {
@@ -140,9 +135,6 @@ app.get('/payment', (req, res) => {
 
 });
 
-app.get('/', (req, res) => {
-    res.render('login');
-});
 
 app.listen(3000, () => {
 
