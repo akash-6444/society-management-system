@@ -2,7 +2,6 @@ require('dotenv').config();
 const path = require('path');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
-const path = require('path');
 const nodemailer = require('nodemailer');
 const express = require('express');
 const mysql = require('mysql2');
