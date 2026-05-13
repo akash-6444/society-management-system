@@ -12,7 +12,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: 'mysessionsecret',
     resave: false,
     saveUninitialized: true
 }));
